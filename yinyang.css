@@ -1,0 +1,128 @@
+/*     yinyang1是用div做出来的太极，yinyang2是用伪元素做出来的太极，
+    用after和before代替第一个div,但是一个div只能跟一个 after和一个before，即
+    #yinyang2::before 和#yinyang2::after；
+    #yinyang2::before::before和#yinyang2::after::after；不支持这样。
+    所以yinyang2用伪元素制造小球时，利用boder实现的，用boder来代替第二个div */
+    body{
+        background:#a29797
+      }
+      /* 实现太极旋转0度到360度，搜索css animation MDN */
+      @keyframes spin {
+        from {
+          transform:rotate(0deg)  
+        }
+        to {
+         transform:rotate(360deg)
+        }
+      }
+      
+      #yinyang1{
+        width:200px;
+        height:200px;
+        /* border:1px solid red; */
+        border-radius:50%;
+        background: linear-gradient(to bottom, #ffffff 0%,#ffffff 50%,#000000 51%,#000000 100%);
+        position:relative;
+        margin:0px auto;
+       /*  动画的基本设置 */
+        animation-duration: 3s;
+        animation-name: spin;
+        animation-iteration-count:infinite;
+        animation-timing-function:linear;
+      }
+      #yinyang2{
+        width:200px;
+        height:200px;
+        /* border:1px solid red; */
+        border-radius:50%;
+        background: linear-gradient(to bottom, #ffffff 0%,#ffffff 50%,#000000 51%,#000000 100%);
+        position:relative;
+        /*  动画的基本设置 */
+        animation-duration: 3s;
+        animation-name: spin;
+        animation-iteration-count:infinite;
+        animation-timing-function:linear;
+      }
+      
+      #yinyang1 .one{
+        width:100px;
+        height:100px;
+        position:absolute;
+        background:black;
+        top:50px;
+        border-radius:50%; 
+        left:0; 
+        }
+      #yinyang2::before{
+        /* 因为beforer是伪元素所默认不显示，只有加了content属性后才会显示，可以为空 */
+        content:'';
+      /*   width:100px;
+        height:100px; 
+        没有设置小圆球你之前的宽度和高度*/
+        
+        /* 由于总宽度100px加了40px的border，宽度改20px */
+        width:20px;
+        height:20px;
+        
+        /*  display:block;
+        如果伪元素已经绝对定位了自动变成div就不用加display:block了 */
+        position:absolute;
+        background:white;
+        top:50px;
+        border-radius:50%; 
+        left:0; 
+       /*  有border实现小圆球， */
+        border:40px solid black;
+        }
+      
+      #yinyang1 .one .cricle{
+       /* border:1px solid red; */
+        width:20px;
+        height:20px;
+        background:white;
+        border-radius:50%;
+        position:absolute;
+        left:40px;
+        top:40px;
+      }
+      #yinyang1 .two{
+        width:100px;
+        height:100px;
+        position:absolute;
+        background:white;
+        top:50px;
+        border-radius:50%;  
+        right:0px;
+      }
+      #yinyang2::after{
+        /* 因为beforer是伪元素所默认不显示，只有加了content属性后才会显示，可以为空 */
+        content:'';
+      /*   width:100px;
+        height:100px;
+         没有设置小圆球你之前的宽度和高度*/
+        
+        /* 由于总宽度100px加了40px的border，宽度改20px */
+        width:20px;
+        height:20px;
+        
+        /*  display:block;
+        如果伪元素已经绝对定位了自动变成div就不用加display:block了 */
+        position:absolute;
+        background:black;
+        top:50px;
+        border-radius:50%; 
+        left:100px; 
+       /*  有border实现小圆球， */
+        border:40px solid white;
+        }
+      #yinyang1 .two >.cricle{
+        width:20px;
+        height:20px;
+        /* border:1px solid red; */
+        background:black;
+        border-radius:50%;
+        position:absolute;
+        left:40px;
+        top:40px; 
+      }
+      

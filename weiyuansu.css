@@ -1,0 +1,12 @@
+/* before和after都是伪元素，下面设置使得页面中所有的DIV前面加？后面加~，
+但是这些伪元素~？是不能被选中不能复制的， */
+div::before{
+    content:'?';
+    /* 添加display:block属性后使得伪元素具有div的性质，独占一行 */
+    /* display:block; */
+    border:1px solid blue;
+  }
+  div::after{
+    content:'~';
+     border:1px solid red;
+  }

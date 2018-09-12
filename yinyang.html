@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>yinyang形成的两个方法</title>
+</head>
+<body>
+  <p>
+ yinyang1是用div做出来的太极，yinyang2是用伪元素做出来的太极，
+    用after和before代替第一个div,但是一个div只能跟一个 after和一个before，即
+    #yinyang2::before 和#yinyang2::after；
+    #yinyang2::before::before和#yinyang2::after::after；不支持这样。
+    所以yinyang2用伪元素制造小球时，利用boder实现的，用boder来代替第二个div 
+  </p>
+  <div  id="yinyang1">
+    <div class="one">
+      <div class="cricle"></div>
+    </div>
+    
+    <div class="two">
+       <div class="cricle"></div>
+    </div>
+ </div>
+  <div id="yinyang2"></div>
+   
+</body>
+</html>
